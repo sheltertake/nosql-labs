@@ -56,3 +56,65 @@ Running 10s test @ http://192.168.1.159:5000/customers?sql=true
   Socket errors: connect 0, read 0, write 0, timeout 140
 Requests/sec:    493.55
 Transfer/sec:     11.66MB
+
+
+-- replica --
+
+warmup
+Running 5s test @ http://192.168.1.159:5000/customers?sql=true
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     5.03ms    1.80ms  26.65ms   92.55%
+    Req/Sec   202.98     30.25   252.00     66.00%
+  Latency Distribution
+     50%    4.55ms
+     75%    5.43ms
+     90%    6.44ms
+     99%   12.14ms
+  1012 requests in 5.00s, 23.90MB read
+Requests/sec:    202.24
+Transfer/sec:      4.78MB
+6 threads 6 connections 10s
+Running 10s test @ http://192.168.1.159:5000/customers?sql=true
+  6 threads and 6 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.31ms   18.18ms 243.67ms   91.95%
+    Req/Sec    53.39     19.59   101.00     69.59%
+  Latency Distribution
+     50%   16.71ms
+     75%   22.93ms
+     90%   34.93ms
+     99%  101.44ms
+  3190 requests in 10.08s, 75.33MB read
+Requests/sec:    316.53
+Transfer/sec:      7.47MB
+12 threads 50 connections 10s
+Running 10s test @ http://192.168.1.159:5000/customers?sql=true
+  12 threads and 50 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   107.02ms  174.11ms   1.94s    96.11%
+    Req/Sec    37.45     21.12   151.00     68.67%
+  Latency Distribution
+     50%   74.03ms
+     75%   98.36ms
+     90%  141.00ms
+     99%    1.13s 
+  3750 requests in 10.10s, 88.57MB read
+  Socket errors: connect 0, read 0, write 0, timeout 51
+Requests/sec:    371.29
+Transfer/sec:      8.77MB
+12 threads 400 connections 10s
+Running 10s test @ http://192.168.1.159:5000/customers?sql=true
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   132.37ms   75.91ms   1.76s    90.35%
+    Req/Sec    89.15     50.09   350.00     64.53%
+  Latency Distribution
+     50%  122.37ms
+     75%  153.43ms
+     90%  192.81ms
+     99%  283.61ms
+  4498 requests in 10.10s, 106.22MB read
+  Socket errors: connect 0, read 0, write 0, timeout 106
+Requests/sec:    445.20
+Transfer/sec:     10.51MB

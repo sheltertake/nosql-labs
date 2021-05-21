@@ -1,4 +1,5 @@
 ﻿using Contoso.Model;
+using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Conventions;
 using MongoDB.Driver;
 using System.Collections.Generic;
@@ -14,31 +15,36 @@ namespace Contoso.Mongo.Repositories
     }
     public class MongoCustomersRepository : IMongoCustomersRepository
     {
-        public async Task<IEnumerable<Customer>> FindAsync()
+        private IMongoCollection<Customer> collection;
+
+        public MongoCustomersRepository()
         {
-            var conventionPack = new ConventionPack { new IgnoreExtraElementsConvention(true) };
-            ConventionRegistry.Register("IgnoreExtraElements", conventionPack, type => true);
+            //var conventionPack = new ConventionPack { new IgnoreExtraElementsConvention(true) };
+            //ConventionRegistry.Register("IgnoreExtraElements", conventionPack, type => true);
+            //ConventionRegistry.Remove("__defaults__");
+
+            BsonClassMap.RegisterClassMap<Customer>(cm =>
+            {
+                cm.AutoMap();
+                cm.SetIgnoreExtraElements(true);
+            });
+
             var client = new MongoClient(
-                  "mongodb://root:example@localhost:27017"
+                  //"mongodb://root:example@localhost:27017"
+                  "mongodb://localhost:30001,localhost:30002,localhost:30003/?replicaSet=my-replica-set"
               );
             var database = client.GetDatabase("contoso");
-            var collection = database.GetCollection<Customer>("customers");
+            collection = database.GetCollection<Customer>("customers");
+
+        }
+        public async Task<IEnumerable<Customer>> FindAsync()
+        {            
             var ret = await collection.Find(_ => true).ToListAsync();
             return ret.AsEnumerable();
         }
 
         public async Task InsertAllAsync(IEnumerable<Customer> items)
         {
-            var client = new MongoClient(
-                 "mongodb://root:example@localhost:27017"
-             );
-            var database = client.GetDatabase("contoso");
-
-
-            var collection = database.GetCollection<Customer>("customers");
-            //var documents = items.Select(x => x.ToBsonDocument()).ToList();
-
-            //await database.CreateCollectionAsync("customers");
             await collection.InsertManyAsync(items);
         }
     }

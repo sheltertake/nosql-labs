@@ -54,3 +54,62 @@ Running 10s test @ http://192.168.1.159:5000/customers?sql=false
   4203 requests in 10.10s, 99.25MB read
 Requests/sec:    416.06
 Transfer/sec:      9.83MB
+
+-- replica --
+
+warmup
+Running 5s test @ http://192.168.1.159:5000/customers?sql=false
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     5.24ms    2.98ms  39.30ms   93.19%
+    Req/Sec   202.04     46.91   260.00     76.00%
+  Latency Distribution
+     50%    4.43ms
+     75%    5.18ms
+     90%    7.11ms
+     99%   19.42ms
+  1008 requests in 5.01s, 23.80MB read
+Requests/sec:    201.21
+Transfer/sec:      4.75MB
+6 threads 6 connections 10s
+Running 10s test @ http://192.168.1.159:5000/customers?sql=false
+  6 threads and 6 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    14.87ms    5.99ms  68.26ms   77.89%
+    Req/Sec    68.06     14.15   101.00     70.50%
+  Latency Distribution
+     50%   13.71ms
+     75%   17.36ms
+     90%   22.03ms
+     99%   36.03ms
+  4092 requests in 10.04s, 96.63MB read
+Requests/sec:    407.73
+Transfer/sec:      9.63MB
+12 threads 50 connections 10s
+Running 10s test @ http://192.168.1.159:5000/customers?sql=false
+  12 threads and 50 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   132.23ms   68.47ms 672.24ms   87.80%
+    Req/Sec    32.14     12.54    70.00     71.62%
+  Latency Distribution
+     50%  108.07ms
+     75%  142.35ms
+     90%  214.81ms
+     99%  445.66ms
+  3761 requests in 10.10s, 88.82MB read
+Requests/sec:    372.53
+Transfer/sec:      8.80MB
+12 threads 400 connections 10s
+Running 10s test @ http://192.168.1.159:5000/customers?sql=false
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   988.48ms  220.11ms   1.57s    71.30%
+    Req/Sec    43.70     37.64   202.00     77.08%
+  Latency Distribution
+     50%  968.04ms
+     75%    1.15s 
+     90%    1.26s 
+     99%    1.42s 
+  3780 requests in 10.10s, 89.26MB read
+Requests/sec:    374.15
+Transfer/sec:      8.84MB
