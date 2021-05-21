@@ -1,0 +1,56 @@
+warmup
+Running 5s test @ http://192.168.1.159:5000/customers?sql=false
+  1 threads and 1 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.67ms    1.25ms  26.00ms   94.22%
+    Req/Sec   216.78     21.53   242.00     82.00%
+  Latency Distribution
+     50%    4.42ms
+     75%    4.87ms
+     90%    5.49ms
+     99%    9.02ms
+  1080 requests in 5.00s, 25.50MB read
+Requests/sec:    215.95
+Transfer/sec:      5.10MB
+6 threads 6 connections 10s
+Running 10s test @ http://192.168.1.159:5000/customers?sql=false
+  6 threads and 6 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    12.23ms    5.96ms 114.63ms   91.43%
+    Req/Sec    84.23     13.67   111.00     63.04%
+  Latency Distribution
+     50%   11.12ms
+     75%   13.56ms
+     90%   16.98ms
+     99%   30.26ms
+  5049 requests in 10.04s, 119.23MB read
+Requests/sec:    502.90
+Transfer/sec:     11.88MB
+12 threads 50 connections 10s
+Running 10s test @ http://192.168.1.159:5000/customers?sql=false
+  12 threads and 50 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   113.01ms   75.51ms 801.30ms   94.91%
+    Req/Sec    39.81     10.04    70.00     71.23%
+  Latency Distribution
+     50%   96.87ms
+     75%  107.68ms
+     90%  130.46ms
+     99%  554.11ms
+  4616 requests in 10.06s, 109.01MB read
+Requests/sec:    458.80
+Transfer/sec:     10.83MB
+12 threads 400 connections 10s
+Running 10s test @ http://192.168.1.159:5000/customers?sql=false
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   893.40ms  247.56ms   1.91s    87.08%
+    Req/Sec    57.68     58.22   262.00     86.03%
+  Latency Distribution
+     50%  832.61ms
+     75%  867.93ms
+     90%    1.10s 
+     99%    1.80s 
+  4203 requests in 10.10s, 99.25MB read
+Requests/sec:    416.06
+Transfer/sec:      9.83MB
