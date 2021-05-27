@@ -19,10 +19,6 @@ namespace Contoso.Mongo.Repositories
 
         public MongoCustomersRepository()
         {
-            //var conventionPack = new ConventionPack { new IgnoreExtraElementsConvention(true) };
-            //ConventionRegistry.Register("IgnoreExtraElements", conventionPack, type => true);
-            //ConventionRegistry.Remove("__defaults__");
-
             BsonClassMap.RegisterClassMap<Customer>(cm =>
             {
                 cm.AutoMap();
@@ -30,8 +26,8 @@ namespace Contoso.Mongo.Repositories
             });
 
             var client = new MongoClient(
-                  //"mongodb://root:example@localhost:27017"
-                  "mongodb://localhost:30001,localhost:30002,localhost:30003/?replicaSet=my-replica-set"
+                  "mongodb://root:example@localhost:27017"
+              //"mongodb://localhost:30001,localhost:30002,localhost:30003/?replicaSet=my-replica-set"
               );
             var database = client.GetDatabase("contoso");
             collection = database.GetCollection<Customer>("customers");
