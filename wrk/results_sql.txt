@@ -2,119 +2,57 @@ warmup
 Running 5s test @ http://192.168.1.159:5000/customers?sql=true
   1 threads and 1 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     4.34ms  771.08us  12.21ms   84.00%
-    Req/Sec   231.44     15.20   252.00     74.00%
+    Latency     5.08ms    2.21ms  21.12ms   87.51%
+    Req/Sec   202.22     56.78   262.00     66.00%
   Latency Distribution
-     50%    4.11ms
-     75%    4.64ms
-     90%    5.20ms
-     99%    7.32ms
-  1153 requests in 5.01s, 27.23MB read
-Requests/sec:    230.32
-Transfer/sec:      5.44MB
+     50%    4.20ms
+     75%    5.24ms
+     90%    7.93ms
+     99%   14.03ms
+  1008 requests in 5.01s, 23.80MB read
+Requests/sec:    201.40
+Transfer/sec:      4.76MB
 6 threads 6 connections 10s
 Running 10s test @ http://192.168.1.159:5000/customers?sql=true
   6 threads and 6 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    13.78ms    4.93ms  47.53ms   70.76%
-    Req/Sec    72.85     12.54   111.00     58.67%
+    Latency    16.78ms   16.70ms 232.40ms   94.98%
+    Req/Sec    68.01     19.84   116.00     68.30%
   Latency Distribution
-     50%   13.12ms
-     75%   16.61ms
-     90%   20.16ms
-     99%   28.43ms
-  4377 requests in 10.04s, 103.37MB read
-Requests/sec:    436.14
-Transfer/sec:     10.30MB
+     50%   13.30ms
+     75%   17.80ms
+     90%   24.84ms
+     99%   93.79ms
+  4052 requests in 10.04s, 95.69MB read
+Requests/sec:    403.40
+Transfer/sec:      9.53MB
 12 threads 50 connections 10s
 Running 10s test @ http://192.168.1.159:5000/customers?sql=true
   12 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   120.60ms  152.38ms   1.99s    95.93%
-    Req/Sec    40.16     12.33    90.00     81.02%
+    Latency    95.09ms  179.50ms   1.99s    95.90%
+    Req/Sec    43.13     21.13   131.00     66.50%
   Latency Distribution
-     50%   95.04ms
-     75%  112.22ms
-     90%  141.95ms
-     99%  932.21ms
-  4803 requests in 10.09s, 113.42MB read
-  Socket errors: connect 0, read 0, write 0, timeout 3
-Requests/sec:    475.79
-Transfer/sec:     11.24MB
+     50%   60.85ms
+     75%   76.11ms
+     90%   99.72ms
+     99%    1.14s 
+  4305 requests in 10.09s, 101.67MB read
+  Socket errors: connect 0, read 0, write 0, timeout 56
+Requests/sec:    426.86
+Transfer/sec:     10.08MB
 12 threads 400 connections 10s
 Running 10s test @ http://192.168.1.159:5000/customers?sql=true
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   122.49ms   66.64ms   1.86s    93.02%
-    Req/Sec    70.12     64.31   282.00     79.00%
+    Latency   112.15ms   64.08ms   1.95s    92.54%
+    Req/Sec    83.24     69.98   350.00     67.14%
   Latency Distribution
-     50%  112.53ms
-     75%  138.46ms
-     90%  165.84ms
-     99%  289.31ms
-  4970 requests in 10.07s, 117.37MB read
-  Socket errors: connect 0, read 0, write 0, timeout 140
-Requests/sec:    493.55
-Transfer/sec:     11.66MB
-
-
--- replica --
-
-warmup
-Running 5s test @ http://192.168.1.159:5000/customers?sql=true
-  1 threads and 1 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     5.03ms    1.80ms  26.65ms   92.55%
-    Req/Sec   202.98     30.25   252.00     66.00%
-  Latency Distribution
-     50%    4.55ms
-     75%    5.43ms
-     90%    6.44ms
-     99%   12.14ms
-  1012 requests in 5.00s, 23.90MB read
-Requests/sec:    202.24
-Transfer/sec:      4.78MB
-6 threads 6 connections 10s
-Running 10s test @ http://192.168.1.159:5000/customers?sql=true
-  6 threads and 6 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.31ms   18.18ms 243.67ms   91.95%
-    Req/Sec    53.39     19.59   101.00     69.59%
-  Latency Distribution
-     50%   16.71ms
-     75%   22.93ms
-     90%   34.93ms
-     99%  101.44ms
-  3190 requests in 10.08s, 75.33MB read
-Requests/sec:    316.53
-Transfer/sec:      7.47MB
-12 threads 50 connections 10s
-Running 10s test @ http://192.168.1.159:5000/customers?sql=true
-  12 threads and 50 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   107.02ms  174.11ms   1.94s    96.11%
-    Req/Sec    37.45     21.12   151.00     68.67%
-  Latency Distribution
-     50%   74.03ms
-     75%   98.36ms
-     90%  141.00ms
-     99%    1.13s 
-  3750 requests in 10.10s, 88.57MB read
-  Socket errors: connect 0, read 0, write 0, timeout 51
-Requests/sec:    371.29
-Transfer/sec:      8.77MB
-12 threads 400 connections 10s
-Running 10s test @ http://192.168.1.159:5000/customers?sql=true
-  12 threads and 400 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   132.37ms   75.91ms   1.76s    90.35%
-    Req/Sec    89.15     50.09   350.00     64.53%
-  Latency Distribution
-     50%  122.37ms
-     75%  153.43ms
-     90%  192.81ms
-     99%  283.61ms
-  4498 requests in 10.10s, 106.22MB read
-  Socket errors: connect 0, read 0, write 0, timeout 106
-Requests/sec:    445.20
-Transfer/sec:     10.51MB
+     50%  104.93ms
+     75%  126.47ms
+     90%  156.39ms
+     99%  249.94ms
+  5336 requests in 10.10s, 126.01MB read
+  Socket errors: connect 0, read 0, write 0, timeout 80
+Requests/sec:    528.49
+Transfer/sec:     12.48MB
